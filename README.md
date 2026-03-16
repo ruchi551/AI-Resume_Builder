@@ -6,16 +6,6 @@ The project is built using the MERN Stack (MongoDB, Express.js, React.js, Node.j
 
 ---
 
-## 🚀 Live Demo
-
-Coming Soon
-
----
-
-## 📸 Screenshots
-
-<img width="1920" height="1024" alt="Screenshot (179)" src="https://github.com/user-attachments/assets/d45ce0d6-2cb2-4c4b-9710-2705ceda9c1b" />
-
 
 ## ✨ Features
 
