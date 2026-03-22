@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+:root {
+  --navy: #0F172A;
+  --navy-700: #1E293B;
+  --indigo: #4F46E5;
+  --indigo-light: #6366F1;
+  --indigo-50: #EEF2FF;
+  --indigo-100: #E0E7FF;
+  --slate-50: #F8FAFC;
+  --slate-200: #E2E8F0;
+  --slate-400: #94A3B8;
+  --slate-600: #475569;
+}
+
+* { font-family: 'Sora', sans-serif; }
+
+@layer base {
+  button { @apply cursor-pointer; }
+  input:not([type="checkbox"]) {
+    @apply outline-none border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-800 bg-white
+           focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-400 transition-all;
+  }
+  textarea {
+    @apply outline-none border border-slate-200 rounded-lg px-3 py-2 text-sm text-slate-800 bg-white
+           focus:ring-2 focus:ring-indigo-500/30 focus:border-indigo-400 transition-all resize-none;
+  }
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F1F5F9; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
