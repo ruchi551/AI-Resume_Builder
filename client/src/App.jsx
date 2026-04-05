@@ -6,25 +6,27 @@ import Dashboard from './pages/Dashboard'
 import ResumeBuilder from './pages/ResumeBuilder'
 import Preview from './pages/Preview'
 import Login from './pages/Login'
+import ForgotPassword from './pages/ForgotPassword'
+import ResetPassword from './pages/ResetPassword'
+import Profile from './pages/Profile'
 import { useDispatch } from 'react-redux'
 import api from './configs/api'
 import { login, setLoading } from './app/features/authSlice'
-import {Toaster} from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 
 const App = () => {
-
   const dispatch = useDispatch()
 
   const getUserData = async () => {
     const token = localStorage.getItem('token')
     try {
-      if(token){
-        const { data } = await api.get('/api/users/data', {headers: {Authorization: token}})
-        if(data.user){
-          dispatch(login({token, user: data.user}))
+      if (token) {
+        const { data } = await api.get('/api/users/data', { headers: { Authorization: token } })
+        if (data.user) {
+          dispatch(login({ token, user: data.user }))
         }
         dispatch(setLoading(false))
-      }else{
+      } else {
         dispatch(setLoading(false))
       }
     } catch (error) {
@@ -33,23 +35,24 @@ const App = () => {
     }
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     getUserData()
-  },[])
+  }, [])
 
   return (
     <>
-    <Toaster />
+      <Toaster />
       <Routes>
-        <Route path='/' element={<Home />}/>
+        <Route path='/' element={<Home />} />
+        <Route path='/forgot-password' element={<ForgotPassword />} />
+        <Route path='/reset-password/:token' element={<ResetPassword />} />
+        <Route path='/view/:resumeId' element={<Preview />} />
 
         <Route path='app' element={<Layout />}>
-          <Route index element={<Dashboard />}/>
-          <Route path='builder/:resumeId' element={<ResumeBuilder />}/>
+          <Route index element={<Dashboard />} />
+          <Route path='builder/:resumeId' element={<ResumeBuilder />} />
+          <Route path='profile' element={<Profile />} />
         </Route>
-
-        <Route path='view/:resumeId' element={<Preview />}/>
-
       </Routes>
     </>
   )

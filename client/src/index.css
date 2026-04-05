@@ -1,20 +1,37 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 :root {
+  --bg: #0A0A0F;
+  --bg2: #111118;
+  --bg3: #16161F;
+  --border: rgba(255,255,255,0.08);
+  --border2: rgba(255,255,255,0.12);
+  --text: #F0EFF8;
+  --muted: #8B8A99;
+  --accent: #7B6EF6;
+  --accent2: #A89BFF;
+  --green: #22C55E;
+  --amber: #F59E0B;
+
+  /* Keep old vars for dashboard/builder compatibility */
   --navy: #0F172A;
-  --navy-700: #1E293B;
   --indigo: #4F46E5;
   --indigo-light: #6366F1;
-  --indigo-50: #EEF2FF;
-  --indigo-100: #E0E7FF;
-  --slate-50: #F8FAFC;
-  --slate-200: #E2E8F0;
-  --slate-400: #94A3B8;
-  --slate-600: #475569;
 }
 
-* { font-family: 'Sora', sans-serif; }
+* {
+  font-family: 'Instrument Sans', sans-serif;
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Clash Display', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 @layer base {
   button { @apply cursor-pointer; }
@@ -28,6 +45,50 @@
   }
 }
 
+/* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #F1F5F9; }
-::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 3px; }
+::-webkit-scrollbar-track { background: #111118; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes marquee-fwd {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-rev {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee-fwd { animation: marquee-fwd 30s linear infinite; min-width: 200%; }
+.animate-marquee-rev { animation: marquee-rev 30s linear infinite; min-width: 200%; }
+
+/* Print styles for resume */
+@page {
+  size: letter;
+  margin: 0;
+}
+
+@media print {
+  html, body {
+    width: 8.5in;
+    height: 11in;
+    overflow: hidden;
+  }
+  body * { visibility: hidden; }
+  #resume-preview, #resume-preview * { visibility: visible; }
+  #resume-preview {
+    position: absolute;
+    left: 0; top: 0;
+    width: 100%; height: auto;
+    margin: 0; padding: 0;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}

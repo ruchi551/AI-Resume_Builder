@@ -1,6 +1,7 @@
 import { Check, Layout } from 'lucide-react'
 import React, { useState } from 'react'
 
+
 const TemplateSelector = ({ selectedTemplate, onChange }) => {
   const [isOpen, setIsOpen] = useState(false)
   const templates = [
@@ -8,6 +9,7 @@ const TemplateSelector = ({ selectedTemplate, onChange }) => {
     { name: 'Modern', id: 'modern', preview: 'Sleek design with strategic use of accent color.' },
     { id: 'minimal-image', name: 'Minimal + Photo', preview: 'Sidebar layout with profile image support.' },
     { id: 'minimal', name: 'Minimal', preview: 'Ultra-clean, content-forward design.' },
+  
   ]
 
   return (

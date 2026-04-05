@@ -43,13 +43,13 @@ const Login = () => {
             <div className="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
               <FileText size={24} className="text-white" />
             </div>
-            <span className="text-2xl font-bold text-white">ResumeAI</span>
+            <span className="text-2xl font-bold text-white">BuildResume</span>
           </div>
           <h2 className="text-3xl font-bold text-white mb-4 leading-tight">
             Your career starts<br />with a great resume
           </h2>
           <p className="text-slate-300 max-w-xs mx-auto leading-relaxed">
-            Join thousands of professionals who've landed their dream jobs using ResumeAI.
+            Join thousands of professionals who've landed their dream jobs using BuildResume.
           </p>
           <div className="mt-10 grid grid-cols-3 gap-6 text-center">
             {[['10K+', 'Users'], ['94%', 'ATS Pass Rate'], ['4.9★', 'Rating']].map(([val, label]) => (
@@ -69,7 +69,7 @@ const Login = () => {
             <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
               <FileText size={16} className="text-white" />
             </div>
-            <span className="font-bold text-slate-900">ResumeAI</span>
+            <span className="font-bold text-slate-900">BuildResume</span>
           </div>
 
           <h1 className="text-2xl font-bold text-slate-900 mb-1">
@@ -106,7 +106,7 @@ const Login = () => {
               <div className="flex justify-between items-center mb-1.5">
                 <label className="block text-sm font-medium text-slate-700">Password</label>
                 {isLogin && (
-                  <button type="button" className="text-xs text-indigo-600 hover:text-indigo-700 font-medium">Forgot password?</button>
+                <Link to="/forgot-password" className="text-xs text-indigo-600 hover:text-indigo-700 font-medium">Forgot password?</Link>
                 )}
               </div>
               <div className="relative">
